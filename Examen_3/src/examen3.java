@@ -26,6 +26,9 @@ public class examen3 {
 		System.out.println("Introduce el año actual: ");
 		aActual = teclado.nextInt();
 		
+		if(a==aActual) {
+			totalDias -=365;
+		if(a<=aActual) {
 		reserva = m;
 		m++;
 		while(m<=12) {
@@ -75,15 +78,16 @@ public class examen3 {
 		 case 12: diasM= 31;break;
 		}
 		totalDias += (diasM-d);
+		
 		a++;
-		while(a<aActual) { //2004 to 2020
+		while(a<aActual) {
 			if(a%4==0) {
 				totalDias+= 366;	
 			}
 			else {
 				totalDias += 365;
 			}
-		a++;
+			a++;
 		}
 		//año 2021
 		reserva = mActual;
@@ -112,8 +116,11 @@ public class examen3 {
 			}
 			mActual--;
 		}
-		totalDias += dActual;
-		System.out.println("El total de dias transcurridos es: " + totalDias);
+		}
+			totalDias += dActual;
+			System.out.println("El total de dias transcurridos es: " + totalDias);
+		}
+		else { System.out.println("IQ de las tardes");}
+		teclado.close();
 	}
-
 }
