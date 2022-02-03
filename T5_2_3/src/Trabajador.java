@@ -2,28 +2,24 @@ import java.util.Scanner;
 
 public class Trabajador {
 	
-	private static String nombre;
+	private static String nombre = "Zacarias";
 	//private static int actual;
-	private static int id;
-	private static int titulacion;
-	private static int antigüedad;
-	private static char eC;
-	private static char turno;
+	private static int id = 1;
+	private static int titulacion = 4;
+	private static int antigüedad = 4;
+	private static char eC = 'C';
+	private static char turno = 'D';
 	
 	public Trabajador() {
 		
-		Trabajador.nombre = "Zacarias";
-		//Trabajador.actual = 0;
-		Trabajador.id = 1;
-		Trabajador.titulacion = 4;
-		Trabajador.antigüedad = 4;
-		Trabajador.eC = 'C';
-		Trabajador.turno = 'D';
+
+		Trabajador.setId(0);
+		Trabajador.setNombre("");
+		Trabajador.seteC((char) 0);
+		Trabajador.setTurno((char) 0);
+		Trabajador.setTitulacion(0);
+		Trabajador.setAntigüedad(0);
 		
-		/**int numero = actual++;
-		
-		if (actual <= 100) id = actual;
-		else System.out.println("No se pueden crear más trabajadores!");*/
 	}
 	
 	
@@ -168,27 +164,99 @@ public class Trabajador {
 
 	static public void modificarDatos() {
 		Scanner teclado = new Scanner (System.in);
+		
 		System.out.println("Introduce nombre: ");
 		setNombre(teclado.nextLine());
-		System.out.println("Introduce titulación(0-4): ");
-		setTitulacion(teclado.nextInt());
+		
+		do{
+			
+			System.out.println("Introduce titulación(0-4): ");
+		    setTitulacion(teclado.nextInt());
+		
+		}while(titulacion<0 && titulacion>4);
+		
 		System.out.println("Introduce antigüedad: ");
 		setAntigüedad(teclado.nextInt());
-		System.out.println("Introduce estado civil: ");
-		seteC(teclado.next().charAt(0));
-		System.out.println("Introduce turno: ");
-		setTurno(teclado.next().charAt(0));
+		
+		do{
+			
+			System.out.println("Introduce estado civil: ");
+			seteC(teclado.next().charAt(0));
+			
+		}while(eC != 'S'&& eC != 'C');
+		
+		do{
+			
+			System.out.println("Introduce turno: ");
+			setTurno(teclado.next().charAt(0));
+			
+		}while(turno != 'D'&& turno != 'N');
+		
 		teclado.close();
 		
 	}
 	
 	static public void verDatos() {
-		// TODO Auto-generated method stub
 		
+	   System.out.println(getNombre());
+	   System.out.println(getId());
+	   System.out.println(getTitulacion());
+	   System.out.println(getAntigüedad());
+	   System.out.println(geteC());
+	   System.out.println(getTurno());
+	   
 	}
 
 	static public void calcularNomina() {
 		
+		int salario_base = 450;
+		int extra_noche = 100;
+		int plus_titulo = 0;
+		int plus_tiempo = 75;
+		double retencion = 0;
+		double total = 0;
+
+		if ( turno == 'N' ) {
+			salario_base += extra_noche;
+		}
+
+		plus_tiempo = plus_tiempo*antigüedad;
+		salario_base += plus_tiempo;
+
+		switch ( titulacion ) {
+		case 0:
+			plus_titulo += 250;
+			break;
+		case 1:
+			plus_titulo += 500;
+			break;
+		case 2:
+			plus_titulo += 1000;
+			break;
+		case 3:
+			plus_titulo += 1250;
+			break;
+		case 4:
+			plus_titulo += 1500;
+			break;
+		default:
+			// System.out.println("\n ERROR: Entrada erronea de parametros");
+		}
+
+		salario_base += plus_titulo;
+
+
+		if ( eC == 'C' ) {
+			retencion = (double)(salario_base*0.10);
+		} else {
+			retencion = (double)(salario_base*0.12);
+		}
+
+		total = (double)salario_base;
+		total = total - retencion;
+
+		System.out.println("\n Calculando nomina ...");
+		System.out.println("\n Nomina: " +total);
 	}
 	
 	static public void menuOpciones() {
@@ -198,23 +266,23 @@ public class Trabajador {
 		
 		System.out.println("Elige que hacer: (1)Ver datos (2)Modificar datos (3)Calcular nomina");
 	    opciones = teclado.nextInt();
-	    
-	    if(opciones == 1 || opciones == 2 || opciones == 3) {
-	    	switch(opciones) {
-	    		case 1 : verDatos();
-	    		case 2 : modificarDatos();
-	    		case 3 : calcularNomina();
-	    	}
+	   
+	    switch(opciones) {
+	    	case 1 : verDatos();
+	    	break;
+	    	case 2 : modificarDatos();
+	    	break;
+	    	case 3 : calcularNomina();
+	    	default: System.out.println("ERROR");
 	    }
-	    else System.out.println("Error");
-
+	    teclado.close();
 	}
 	
 
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		menuOpciones();
 	}
 
 }
