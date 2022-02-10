@@ -11,10 +11,10 @@ public class array5 {
 		Scanner teclado = new Scanner(System.in);
 		do {
 		System.out.println("Que quieres hacer: (1)Añadir disco, (2)Ver lista de discos, (3)Buscar disco, (0)Terminar el "
-				+ "programa");
+		+ "programa");
 		t = teclado.nextInt();
 			switch (t) {
-				case 0 : System.out.println("Finalizando programa");
+				case 0 : System.out.println("Finalizando programa");break;
 				case 1 : añadirDisco();break;
 				case 2 : verLista();break;
 				case 3 : buscarDisco();break;
