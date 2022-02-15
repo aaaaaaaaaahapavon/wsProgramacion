@@ -42,8 +42,13 @@ public class Conjunto {
 				if (this.conjunto [n]!= this.getNum()) {
 					found = true;
 				}
-				else found = false;
+				else { 
+					found = false;
+					break;
+				}
 			}
+			
+			
 			if(found == false) {
 				return false;
 			}
