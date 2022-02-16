@@ -14,14 +14,14 @@ public class Conjunto {
 		}
 
 		public void setConjunto(int n) {
-			do {
+			while(esUnico()==false){
 				if(esUnico()==true) {
 					this.conjunto [n] = this.num;
 				}
 				else if(esUnico()==false){
 					setNum();
 				}
-			}while(esUnico()==false);
+			}
 		}
 			
 		public int getNum() {
