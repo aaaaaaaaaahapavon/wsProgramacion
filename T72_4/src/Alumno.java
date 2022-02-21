@@ -16,6 +16,48 @@ public class Alumno extends Gestion {
 			this.nota = 0;
 		
 			}
+
+		public String getNombre() {
+			return nombre;
+		}
+
+		public void setNombre(String nombre) {
+			this.nombre = nombre;
+		}
+
+		public int getEdad() {
+			return edad;
+		}
+
+		public void setEdad(int edad) {
+			this.edad = edad;
+		}
+
+		public String getnCurso() {
+			return nCurso;
+		}
+
+		public void setnCurso(String nCurso) {
+			this.nCurso = nCurso;
+		}
+
+		public int getNum_asignaturas() {
+			return num_asignaturas;
+		}
+
+		public void setNum_asignaturas(int num_asignaturas) {
+			this.num_asignaturas = num_asignaturas;
+		}
+
+		public int getNota() {
+			return nota;
+		}
+
+		public void setNota(int nota) {
+			this.nota = nota;
+		}
 		
-		
+		public String getTodo() {
+			return getNombre() + " " + getEdad() + " " + getnCurso() + " " + getNum_asignaturas() + " " + getNota();
+		}
 }

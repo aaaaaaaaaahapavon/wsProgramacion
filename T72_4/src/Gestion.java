@@ -2,21 +2,21 @@ import java.util.Scanner;
 public class Gestion {
 	Scanner teclado = new Scanner (System.in);
 		public void añadirAlumno(String nombre, int edad, String nCurso, int num_asignaturas, int nota) {
-			
+				Alumno alumno = new Alumno(nombre, edad, nCurso, num_asignaturas, nota);
 				System.out.println("Nombre Alumno: ");
-				nombre = teclado.next();
+				alumno.setNombre(teclado.next());
 				
 				System.out.println("Edad Alumno: ");
-				edad = teclado.nextInt();
+				alumno.setEdad(teclado.nextInt());
 				
 				System.out.println("Nombre Curso Alumno: ");
-				nCurso = teclado.next();
+				alumno.setnCurso(teclado.next());
 				
 				System.out.println("Numero Asignaturas Alumno: ");
-				num_asignaturas = teclado.nextInt();
+				alumno.setNum_asignaturas(teclado.nextInt());
 				
 				System.out.println("Nota Alumno: ");
-				nota = teclado.nextInt();		
+				alumno.setNota(teclado.nextInt());		
 				
 	
 		}
