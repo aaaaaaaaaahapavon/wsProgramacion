@@ -28,7 +28,7 @@ public class Principal {
 				System.out.println("¿Cuantos alumnos quieres añadir?");
 				indice = teclado.nextInt();
 				indexKeeper += indice;
-				Object [] Alumno = new Object [indexKeeper];
+				String [] Alumno = new String [indexKeeper];
 				for(int controlador = 0; controlador<Alumno.length; controlador++) { 
 					gestion.añadirAlumno(nombre, edad, nCurso, num_asignaturas, nota);
 					Alumno [controlador] = alumno.getTodo();
@@ -40,5 +40,6 @@ public class Principal {
 			}while(terminar != 0);
 			teclado .close();
 	}
+	
 
 }

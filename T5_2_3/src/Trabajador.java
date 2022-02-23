@@ -12,7 +12,6 @@ public class Trabajador {
 	
 	public Trabajador() {
 		
-
 		Trabajador.setId(0);
 		Trabajador.setNombre("");
 		Trabajador.seteC((char) 0);

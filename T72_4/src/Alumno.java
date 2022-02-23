@@ -1,6 +1,8 @@
-
+import java.util.Scanner;
 public class Alumno extends Gestion {
-	
+		
+		Scanner teclado = new Scanner (System.in);
+		
 		private String nombre;
 		private int edad;
 		private String nCurso;
@@ -22,6 +24,7 @@ public class Alumno extends Gestion {
 		}
 
 		public void setNombre(String nombre) {
+			nombre = teclado.next();
 			this.nombre = nombre;
 		}
 
@@ -30,6 +33,7 @@ public class Alumno extends Gestion {
 		}
 
 		public void setEdad(int edad) {
+			edad = teclado.nextInt();
 			this.edad = edad;
 		}
 
@@ -38,6 +42,7 @@ public class Alumno extends Gestion {
 		}
 
 		public void setnCurso(String nCurso) {
+			nCurso = teclado.next();
 			this.nCurso = nCurso;
 		}
 
@@ -46,6 +51,7 @@ public class Alumno extends Gestion {
 		}
 
 		public void setNum_asignaturas(int num_asignaturas) {
+			num_asignaturas = teclado.nextInt();
 			this.num_asignaturas = num_asignaturas;
 		}
 
@@ -54,6 +60,7 @@ public class Alumno extends Gestion {
 		}
 
 		public void setNota(int nota) {
+			nota = teclado.nextInt();
 			this.nota = nota;
 		}
 		
